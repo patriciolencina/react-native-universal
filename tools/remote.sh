@@ -1,0 +1,4 @@
+#!/bin/bash
+
+REMOTE_HOST="139.162.55.124"
+REMOTE_USER=vu

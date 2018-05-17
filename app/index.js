@@ -2,7 +2,7 @@ import React from 'react';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { Provider as StoreProvider } from 'react-redux';
 import { Route, Redirect } from 'react-router-native';
-import { ConnectedRouter, routerMiddleware } from 'react-router';
+import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
 import { createHashHistory, createMemoryHistory } from 'history';
 import { Platform, StyleSheet, View, ActivityIndicator } from 'react-native';
 import { persistReducer, persistStore } from 'redux-persist';
@@ -31,7 +31,7 @@ const reduces = combineReducers({
   auth,
 });
 
-const persistedReducers = ['profiles', 'recentCalls'];
+const persistedReducers = ['app', 'board'];
 const persistConfig = {
   key: 'brekeke-phone',
   storage,

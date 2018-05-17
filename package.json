@@ -23,6 +23,7 @@
     "react-redux": "^5.0.7",
     "react-router": "^4.2.0",
     "react-router-native": "^4.2.0",
+    "react-router-redux": "^5.0.0-alpha.9",
     "redux": "^4.0.0",
     "redux-persist": "^5.9.1"
   },
@@ -60,8 +61,6 @@
     "preset": "react-native"
   },
   "rnpm": {
-    "assets": [
-      "./app/fonts"
-    ]
+    "assets": ["./app/fonts"]
   }
 }
