@@ -10,7 +10,7 @@ import storage from 'redux-persist/lib/storage';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import './fix';
-import ProfilesManage from './views/profiles-manage';
+import ProfilesManage from './views/profiles-manage/index';
 import ProfilesCreate from './views/profiles-create';
 import ProfileUpdate from './views/profile-update';
 import ProfileSignin from './views/profile-signin';
