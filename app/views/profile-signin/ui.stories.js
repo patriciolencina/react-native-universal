@@ -7,7 +7,7 @@ storiesOf(UI.name, module)
   .add('default', () => (
     <UI
       profile={{
-        pbxHostname: 'vule.work',
+        pbxHostname: 'herocrazy.work',
         pbxPort: '8443',
         pbxTenant: 'tn1',
         pbxUsername: '1001',

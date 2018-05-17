@@ -24,7 +24,7 @@ storiesOf(UI.name, module)
   ))
   .add('editing', () => (
     <UI
-      pbxHostname="vule.work"
+      pbxHostname="herocrazy.work"
       pbxPort="8443"
       pbxTenant="tn1"
       pbxUsername="1001"

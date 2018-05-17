@@ -5,7 +5,7 @@ import UI from './ui';
 export default () => (
   <UI
     profile={{
-      pbxHostname: 'vule.work',
+      pbxHostname: 'herocrazy.work',
       pbxPort: '8443',
       pbxTenant: 'tn1',
       pbxUsername: '1001',
