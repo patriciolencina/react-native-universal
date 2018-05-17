@@ -8,6 +8,6 @@ export default () => (
     resolveToast={id => toasts[id]}
   />
 );
-const toasts = Array.from({ length: 5 }, () => ({
+const toasts = Array.from({ length: 0 }, () => ({
   message: faker.lorem.sentence(),
 }));
