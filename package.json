@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "eslint": "eslint --fix ./app && eslint ./app",
-    "web": "webpack-dev-server --config web/webpack.js",
+    "web": "webpack-dev-server --mode development --config web/webpack.js",
     "native": "node node_modules/react-native/local-cli/cli.js start",
     "storybook:native": "storybook start -p 7001 -c ./storybook/native",
     "storybook:web": "start-storybook -p 9001 -c ./storybook/web",
@@ -48,8 +48,6 @@
     "preset": "react-native"
   },
   "rnpm": {
-    "assets": [
-      "./app/fonts"
-    ]
+    "assets": ["./app/fonts"]
   }
 }
