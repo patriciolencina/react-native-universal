@@ -1,9 +1,8 @@
 import React from 'react';
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { Provider as StoreProvider } from 'react-redux';
-import { ModelProvider, combineModels } from '@thenewvu/redux-model';
 import { Route, Redirect } from 'react-router-native';
-import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
+import { ConnectedRouter, routerMiddleware } from 'react-router';
 import { createHashHistory, createMemoryHistory } from 'history';
 import { Platform, StyleSheet, View, ActivityIndicator } from 'react-native';
 import { persistReducer, persistStore } from 'redux-persist';
@@ -20,6 +19,18 @@ import Notifications from './views/notifications';
 import ToastsNotify from './views/toasts-notify';
 import StatusBar from './views/statusbar';
 
+import app from './views/profiles-manage/reducer';
+import board from './views/profiles-create/reducer';
+import home from './views/profile-update/reducer';
+import auth from './views/profile-signin/reducer';
+
+const reduces = combineReducers({
+  app,
+  board,
+  home,
+  auth,
+});
+
 const persistedReducers = ['profiles', 'recentCalls'];
 const persistConfig = {
   key: 'brekeke-phone',
@@ -27,7 +38,8 @@ const persistConfig = {
   whitelist: persistedReducers,
   version: '3.0.0',
 };
-const storeReducer = persistReducer(persistConfig, reduce);
+
+const storeReducer = persistReducer(persistConfig, reduces);
 
 const routerHistory =
   Platform.OS === 'web' ? createHashHistory() : createMemoryHistory();
@@ -53,52 +65,7 @@ const Routing = () => (
     <Route exact path="/profile/:profile/update" component={ProfileUpdate} />
     <Route exact path="/profile/:profile/signin" component={ProfileSignin} />
     <Route exact path="/auth" render={() => <Redirect to="/auth/users" />} />
-    <Route exact path="/auth/calls/manage" component={CallsManage} />
-    <Route exact path="/auth/calls/create" component={CallsCreate} />
-    <Route exact path="/auth/calls/recent" component={CallsRecent} />
-    <Route
-      exact
-      path="/auth/call/:call/transfer/dial"
-      component={CallTransferDial}
-    />
-    <Route
-      exact
-      path="/auth/call/:call/transfer/attend"
-      component={CallTransferAttend}
-    />
-    <Route exact path="/auth/call/:call/keypad" component={CallKeypad} />
-    <Route exact path="/auth/call/:call/park" component={CallPark} />
-    <Route exact path="/auth/users" component={UsersBrowse} />
-    <Route
-      exact
-      path="/auth/chats/buddy/:buddy/recent"
-      component={BuddyChatsRecent}
-    />
-    <Route
-      exact
-      path="/auth/chats/group/:group/recent"
-      component={GroupChatsRecent}
-    />
-    <Route exact path="/auth/chat-groups/create" component={ChatGroupsCreate} />
-    <Route
-      exact
-      path="/auth/chat-group/:group/invite"
-      component={ChatGroupInvite}
-    />
-    <Route exact path="/auth/chats/recent" component={ChatsRecent} />
-    <Route exact path="/auth/settings" component={Settings} />
-    <Route exact path="/auth/phonebooks/browse" component={PhonebooksBrowse} />
-    <Route exact path="/auth/contacts/browse" component={ContactsBrowse} />
-    <Route exact path="/auth/contacts/create" component={ContactsCreate} />
-    <Route path="/auth" component={CallVoices} />
-    <Route path="/auth" component={Tabbar} />
-    <Route path="/auth" component={CallVideos} />
-    <Route path="/auth" component={SIPAuth} />
-    <Route path="/auth" component={UCAuth} />
-    <Route path="/auth" component={PBXAuth} />
     <Notifications>
-      <Route path="/auth" component={CallsNotify} />
-      <Route path="/auth" component={ChatGroupsNotify} />
       <ToastsNotify />
     </Notifications>
   </View>
@@ -107,13 +74,9 @@ const Routing = () => (
 const App = () => (
   <StoreProvider store={store}>
     <PersistGate persistor={storePersistor} loading={<Loading />}>
-      <ModelProvider getter={getter} action={action}>
-        <APIProvider>
-          <ConnectedRouter history={routerHistory}>
-            <Routing />
-          </ConnectedRouter>
-        </APIProvider>
-      </ModelProvider>
+      <ConnectedRouter history={routerHistory}>
+        <Routing />
+      </ConnectedRouter>
     </PersistGate>
   </StoreProvider>
 );
