@@ -3,7 +3,7 @@
 DIRNAME="$(dirname "$0")"
 PHONE_VER="v3"
 BUILD_DIR="$DIRNAME/../builds/web/"
-REMOTE_DIR="~/www/ota/brekeke/phone/$PHONE_VER/web"
+REMOTE_DIR="~/www/herocrazy/$PHONE_VER/web"
 
 . $DIRNAME/remote.sh
 

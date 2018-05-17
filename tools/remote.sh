@@ -1,4 +1,4 @@
 #!/bin/bash
 
-REMOTE_HOST="139.162.55.124"
-REMOTE_USER=vu
+REMOTE_HOST=""
+REMOTE_USER=herocrazy

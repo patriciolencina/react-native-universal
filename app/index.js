@@ -33,7 +33,7 @@ const reduces = combineReducers({
 
 const persistedReducers = ['app', 'board'];
 const persistConfig = {
-  key: 'brekeke-phone',
+  key: 'react_native_web_universal',
   storage,
   whitelist: persistedReducers,
   version: '3.0.0',
