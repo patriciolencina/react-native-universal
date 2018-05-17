@@ -15,38 +15,10 @@ import ProfilesManage from './views/profiles-manage';
 import ProfilesCreate from './views/profiles-create';
 import ProfileUpdate from './views/profile-update';
 import ProfileSignin from './views/profile-signin';
-import UsersBrowse from './views/users-browse';
-import CallsManage from './views/calls-manage';
-import CallsCreate from './views/calls-create';
-import CallsRecent from './views/calls-recent';
-import CallsNotify from './views/calls-notify';
-import CallVoices from './views/call-voices';
-import CallVideos from './views/call-videos';
-import CallTransferDial from './views/call-transfer-dial';
-import CallTransferAttend from './views/call-transfer-attend';
-import CallKeypad from './views/call-keypad';
-import CallPark from './views/call-park';
-import ChatsRecent from './views/chats-recent';
-import BuddyChatsRecent from './views/buddy-chats-recent';
-import GroupChatsRecent from './views/group-chats-recent';
-import ChatGroupsCreate from './views/chat-groups-create';
-import ChatGroupsNotify from './views/chat-groups-notify';
-import ChatGroupInvite from './views/chat-group-invite';
-import PhonebooksBrowse from './views/phonebooks-browse';
-import ContactsBrowse from './views/contacts-browse';
-import ContactsCreate from './views/contacts-create';
-import Tabbar from './views/tabbar';
-import Settings from './views/settings';
-import PBXAuth from './views/pbx-auth';
-import SIPAuth from './views/sip-auth';
-import UCAuth from './views/uc-auth';
+
 import Notifications from './views/notifications';
 import ToastsNotify from './views/toasts-notify';
-import APIProvider from './apis';
 import StatusBar from './views/statusbar';
-import * as models from './models';
-
-const { getter, action, reduce } = combineModels(models);
 
 const persistedReducers = ['profiles', 'recentCalls'];
 const persistConfig = {
