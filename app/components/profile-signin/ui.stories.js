@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { action } from '@storybook/addon-actions';
-import UI from './ui';
+import UI from './index';
 
 storiesOf(UI.name, module)
   .add('default', () => (

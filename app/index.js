@@ -1,5 +1,6 @@
+//@flow
 import React from 'react';
-import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider as StoreProvider } from 'react-redux';
 import { Route, Redirect } from 'react-router-native';
 import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
@@ -9,29 +10,18 @@ import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { PersistGate } from 'redux-persist/integration/react';
 
+import reduces from './configs/reducers';
 import './fix';
-import ProfilesManage from './views/profiles-manage/index';
-import ProfilesCreate from './views/profiles-create';
-import ProfileUpdate from './views/profile-update';
-import ProfileSignin from './views/profile-signin';
+import ProfilesManage from './components/profiles-manage/index';
+import ProfilesCreate from './components/profiles-create';
+import ProfileUpdate from './components/profile-update';
+import ProfileSignin from './components/profile-signin';
 
-import Notifications from './views/notifications';
-import ToastsNotify from './views/toasts-notify';
-import StatusBar from './views/statusbar';
+import Notifications from './components/notifications';
+import ToastsNotify from './components/toasts-notify';
+import StatusBar from './components/statusbar';
 
-import app from './views/profiles-manage/reducer';
-import board from './views/profiles-create/reducer';
-import home from './views/profile-update/reducer';
-import auth from './views/profile-signin/reducer';
-
-const reduces = combineReducers({
-  app,
-  board,
-  home,
-  auth,
-});
-
-const persistedReducers = ['app', 'board'];
+const persistedReducers = ['auth', 'feed'];
 const persistConfig = {
   key: 'react_native_web_universal',
   storage,
